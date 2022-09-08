@@ -6,3 +6,6 @@ sfml.
 ### **Algorithms**
 1. Bubble sort
 2. Quick Sort
+
+### **Dependencies**
+1. SFML

@@ -18,7 +18,7 @@
 
 
 int main() {
-    int no_of_columns = 600; // 600;
+    int no_of_columns = 200; // 600;
     std::vector<float> heights(no_of_columns);
 
     // take input from user for no of columns
@@ -55,8 +55,8 @@ int main() {
 
     sf::RenderWindow window(sf::VideoMode(1200, 675), "Sorting", sf::Style::Close | sf::Style::Titlebar);
     
-    // BubbleSort sort(&columns);
-    QuickSort sort(&columns);
+    BubbleSort sort(&columns);
+    // QuickSort sort(&columns);
     sort.setWindow(&window);
 
     bool sorted = false;
