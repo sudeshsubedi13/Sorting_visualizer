@@ -16,6 +16,11 @@
 #define WIDTH 1200
 #define HEIGHT 675
 
+enum Algo {
+    BUBBLE, QUICK
+};
+
+int chooseAlgo();
 
 int main() {
     int no_of_columns = 100; // 600;
@@ -53,11 +58,34 @@ int main() {
     }
 
 
-    sf::RenderWindow window(sf::VideoMode(1200, 675), "Sorting", sf::Style::Close | sf::Style::Titlebar);
     
-    BubbleSort sort(&columns);
-    // QuickSort sort(&columns);
-    sort.setWindow(&window);
+
+    // choosing sorting algorithm
+    auto sortb = new BubbleSort(&columns);
+    auto sortq = new QuickSort(&columns);
+    int opt = chooseAlgo(); 
+    switch (opt)
+    {
+    case QUICK:
+        delete sortb;
+        break;
+    case BUBBLE:
+    default:
+        delete sortq;
+        break;
+    }
+
+    sf::RenderWindow window(sf::VideoMode(1200, 675), "Sorting", sf::Style::Close | sf::Style::Titlebar);
+    switch (opt)
+    {
+    case QUICK:
+        sortq->setWindow(&window);
+        break;
+    case BUBBLE:
+    default:
+        sortb->setWindow(&window);
+        break;
+    }
 
     bool sorted = false;
     while(window.isOpen()) {
@@ -70,7 +98,17 @@ int main() {
             }
         }
         if(!sorted) {
-            sorted = sort.sort();
+            switch (opt)
+            {
+            case QUICK:
+                sortq->sort();
+                break;
+            case BUBBLE:
+            default:
+                sortb->sort();
+                break;
+            }
+
         }
         window.clear(sf::Color::Black);
 
@@ -86,3 +124,23 @@ int main() {
     return 0;
 }
 
+
+
+int chooseAlgo() {
+    std::vector<std::string> algo_names;
+    algo_names.push_back("Bubble sort");
+    algo_names.push_back("Quick sort");
+    int opt;
+    std::cout << "Please choose an algorithm, (default = 1)\n";
+    for(int i = 0; i<algo_names.size(); i++) {
+        std::cout << i+1 << ".  "  << algo_names.at(i) << "\n";
+    }
+
+    std::cin >> opt;
+    if(opt <= 0 || opt > algo_names.size()) {
+        std::cout << "option " << opt << " not available. using default option.\n";
+        return 0;
+    }
+
+    return opt-1;
+}
