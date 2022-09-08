@@ -9,3 +9,19 @@ sfml.
 
 ### **Dependencies**
 1. SFML
+
+### **Building**
+Before building make sure you have sfml installed and its include files is available for your compiler
+
+first clone the repo into desired location
+
+```sh
+git clone https://github.com/sudeshsubedi13/Sorting_visualizer.git
+```
+
+then run the install.sh file
+```sh
+source install.sh
+```
+
+the executable is in builds/sorting relative to current path
