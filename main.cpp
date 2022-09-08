@@ -18,7 +18,7 @@
 
 
 int main() {
-    int no_of_columns = 200; // 600;
+    int no_of_columns = 100; // 600;
     std::vector<float> heights(no_of_columns);
 
     // take input from user for no of columns
