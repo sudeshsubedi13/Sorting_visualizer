@@ -61,6 +61,7 @@ int main() {
     
 
     // choosing sorting algorithm
+    // TODO find a better solution to this!!
     auto sortb = new BubbleSort(&columns);
     auto sortq = new QuickSort(&columns);
     int opt = chooseAlgo(); 

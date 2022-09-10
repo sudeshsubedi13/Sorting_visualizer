@@ -1,0 +1,4 @@
+REFACTOR
+- Make sorting algorithms functions of Sort class rather
+    than child classes of Sort
+- Make a program class

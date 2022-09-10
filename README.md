@@ -27,6 +27,3 @@ source install.sh
 the executable is in builds/sorting relative to current path
 
 
-### **NOTE**
-Code needs refactoring to make sorting algorithms
-functions of Sort class rather than child classes of Sort
